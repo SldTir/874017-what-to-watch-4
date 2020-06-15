@@ -30,7 +30,7 @@ describe(`MainComponent`, () => {
     const headersElement = mainElement.find(`h3.small-movie-card__title`);
 
     headersElement.forEach((element) => {
-      element.simulate(`click`, {preventDefault() {} });
+      element.simulate(`click`, {preventDefault() {}});
     });
 
     expect(onHeaderClick.mock.calls.length).toBe(3);
