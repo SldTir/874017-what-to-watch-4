@@ -15,6 +15,7 @@ describe(`ChecksComponentsMain`, () => {
       .create(<Main
         Description={Description}
         Titles={Titles}
+        onHeaderClick={() => {}}
       />)
       .toJSON();
 
