@@ -2,16 +2,20 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MovieCard from './movie-card';
 
-const Titles = [`Fantastic Beasts`];
+const filmsInfo = [
+  {
+    src: `img/bohemian-rhapsody.jpg`,
+    name: `Bohemian Rhapsody`,
+  }
+];
+
 const headerClick = () => {};
+const cardHover = () => {};
 
 describe(`ChecksComponentsMovieCard`, () => {
   it(`RenderComponentsMovieCard`, () => {
     const tree = renderer
-      .create(<MovieCard
-        nameFilm={Titles[0]}
-        onHeaderClick={headerClick}
-      />)
+      .create(filmsInfo.map((film) => <MovieCard key={film} imagePath={film.src} nameFilm={film.name} onHeaderClick={headerClick} cardHover={cardHover}/>))
       .toJSON();
 
     expect(tree).toMatchSnapshot();
