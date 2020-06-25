@@ -21,7 +21,6 @@ App.propTypes = {
     DATE: PropTypes.number.isRequired,
   }),
   filmsInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired).isRequired).isRequired,
-  onHeaderClick: PropTypes.func.isRequired,
 };
 
 export default App;
