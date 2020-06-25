@@ -27,10 +27,9 @@ describe(`MovieCardComponent`, () => {
     );
 
     const cardsElements = MovieCardElement.find(`article.small-movie-card`);
-    cardsElements.forEach((element) => {
-      element.props().onMouseEnter();
-    });
+    cardsElements.simulate(`mouseenter`, {preventDefault() {}});
 
-    expect(onCardHover.mock.calls.length).toBe(1);
+
+    expect(onCardHover).toHaveBeenCalledTimes(1);
   });
 });
