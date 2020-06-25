@@ -9,11 +9,11 @@ class MovieList extends PureComponent {
     this.state = {
       name: `Bohemian Rhapsody`,
     };
+  }
 
-    this.changesState = (name) => {
-      this.state = {
-        name,
-      };
+  changesState(name) {
+    this.setState = {
+      name,
     };
   }
 
@@ -29,7 +29,7 @@ class MovieList extends PureComponent {
               imagePath={film.src}
               nameFilm={film.name}
               onHeaderClick={onHeaderClick}
-              changesState={this.changesState}
+              changesState={this.changesState.bind(this)}
               filmsArray={filmsArray}
             />
           )}
