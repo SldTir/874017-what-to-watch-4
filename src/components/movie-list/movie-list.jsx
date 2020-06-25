@@ -8,13 +8,14 @@ const MovieList = (props) => {
   const {filmsInfo, onHeaderClick} = props;
   return (
     <div className="catalog__movies-list">
-      {filmsInfo.map((film, it) =>
+      {filmsInfo.map((film, it, filmsArray) =>
         <MovieCard
           key={film + it}
           imagePath={film.src}
           nameFilm={film.name}
           onHeaderClick={onHeaderClick}
-          cardHover={cardHover} />)}
+          cardHover={cardHover}
+          filmsArray={filmsArray} />)}
     </div>
   );
 };
