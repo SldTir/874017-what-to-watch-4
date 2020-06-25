@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, { mount } from "enzyme";
+import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import MovieCard from "./movie-card.jsx";
 
@@ -23,7 +23,7 @@ describe(`MovieCardComponent`, () => {
           imagePath={filmsInfo[0].src}
           nameFilm={filmsInfo[0].name}
           onHeaderClick={onHeaderClick}
-          cardHover={onCardHover} />
+          changesState={onCardHover} />
     );
 
     const cardsElements = MovieCardElement.find(`article.small-movie-card`);
@@ -41,7 +41,7 @@ describe(`MovieCardComponent`, () => {
           imagePath={filmsInfo[0].src}
           nameFilm={filmsInfo[0].name}
           onHeaderClick={onHeaderClick}
-          cardHover={onCardHover} />
+          changesState={onCardHover} />
     );
     const cardsElements = MovieCardElement.find(`article.small-movie-card`);
     cardsElements.simulate(`mouseenter`, {preventDefault() { }});
