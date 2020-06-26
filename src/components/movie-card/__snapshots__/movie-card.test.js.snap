@@ -3,14 +3,15 @@
 exports[`ChecksComponentsMovieCard RenderComponentsMovieCard 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
+  onMouseEnter={[Function]}
 >
   <div
     className="small-movie-card__image"
   >
     <img
-      alt="Fantastic Beasts"
+      alt="Bohemian Rhapsody"
       height="175"
-      src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
+      src="img/bohemian-rhapsody.jpg"
       width="280"
     />
   </div>
@@ -22,7 +23,7 @@ exports[`ChecksComponentsMovieCard RenderComponentsMovieCard 1`] = `
       className="small-movie-card__link"
       href="movie-page.html"
     >
-      Fantastic Beasts
+      Bohemian Rhapsody
     </a>
   </h3>
 </article>

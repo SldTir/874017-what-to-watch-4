@@ -1,13 +1,4 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Main from "./main.jsx";
-
-const Description = {
-  GENRE: `Drama`,
-  DATE: 2014,
-};
-
-const filmsInfo = [
+export default [
   {
     src: `img/bohemian-rhapsody.jpg`,
     name: `Bohemian Rhapsody`,
@@ -34,17 +25,3 @@ const filmsInfo = [
     name: `Moonrise Kingdom`,
   }
 ];
-
-describe(`ChecksComponentsMain`, () => {
-  it(`RenderComponentsMain`, () => {
-    const tree = renderer
-      .create(<Main
-        Description={Description}
-        filmsInfo={filmsInfo}
-        onHeaderClick={() => {}}
-      />)
-      .toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-});

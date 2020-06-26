@@ -1,9 +1,9 @@
 import React from "react";
-import MovieCard from "../movie-card/movie-card.jsx";
+import MovieList from "../movie-list/movie-list.jsx";
 import PropTypes from "prop-types";
 
 const Main = (props) => {
-  const {Description, Titles, onHeaderClick} = props;
+  const {Description, filmsInfo, onHeaderClick} = props;
   const {GENRE, DATE} = Description;
   return (
     <>
@@ -99,9 +99,10 @@ const Main = (props) => {
             </li>
           </ul>
 
-          <div className="catalog__movies-list">
-            {Titles.map((title) => <MovieCard key={title} nameFilm={title} onHeaderClick={onHeaderClick}/>)}
-          </div>
+          <MovieList
+            filmsInfo={filmsInfo}
+            onHeaderClick={onHeaderClick}
+          />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -131,7 +132,7 @@ Main.propTypes = {
     GENRE: PropTypes.string.isRequired,
     DATE: PropTypes.number.isRequired,
   }),
-  Titles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  filmsInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired).isRequired).isRequired,
   onHeaderClick: PropTypes.func.isRequired,
 };
 

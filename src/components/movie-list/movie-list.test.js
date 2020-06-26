@@ -1,11 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Main from "./main.jsx";
-
-const Description = {
-  GENRE: `Drama`,
-  DATE: 2014,
-};
+import React from 'react';
+import renderer from 'react-test-renderer';
+import MovieList from './movie-list.jsx';
 
 const filmsInfo = [
   {
@@ -35,15 +30,15 @@ const filmsInfo = [
   }
 ];
 
-describe(`ChecksComponentsMain`, () => {
-  it(`RenderComponentsMain`, () => {
+const onHeaderClick = () => {};
+
+describe(`ChecksTheCreationOfAListOfMovies`, () => {
+  it(`CreatesAListOfMovies`, () => {
     const tree = renderer
-      .create(<Main
-        Description={Description}
+      .create(<MovieList
         filmsInfo={filmsInfo}
-        onHeaderClick={() => {}}
-      />)
-      .toJSON();
+        onHeaderClick={onHeaderClick}
+      />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

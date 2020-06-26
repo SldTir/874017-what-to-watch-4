@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/app.jsx";
+import filmsInfo from "./mocks/films.js";
 
 const Description = {
   GENRE: `Drama`,
   DATE: 2014,
 };
 
-const Titles = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
-
 ReactDOM.render(
     <App
       Description={Description}
-      Titles={Titles}
+      filmsInfo={filmsInfo}
     />,
     document.querySelector(`#root`)
 );

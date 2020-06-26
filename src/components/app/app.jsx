@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 const headerClick = () => {};
 
 const App = (props) => {
-  const {Description, Titles} = props;
+  const {Description, filmsInfo} = props;
   return (
     <Main
       Description={Description}
-      Titles={Titles}
+      filmsInfo={filmsInfo}
       onHeaderClick={headerClick}
     />
   );
@@ -20,7 +20,7 @@ App.propTypes = {
     GENRE: PropTypes.string.isRequired,
     DATE: PropTypes.number.isRequired,
   }),
-  Titles: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
+  filmsInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired).isRequired).isRequired,
 };
 
 export default App;
