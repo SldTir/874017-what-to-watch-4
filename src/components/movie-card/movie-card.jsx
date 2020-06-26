@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const MovieCard = (props) => {
-  const {imagePath, nameFilm, onHeaderClick, changesState} = props;
+  const {imagePath, nameFilm, onHeaderClick, handleCardHover} = props;
 
   return (
     <article onMouseEnter={(evt) => {
       evt.preventDefault();
-      changesState(nameFilm);
+      handleCardHover(nameFilm);
     }}
     className="small-movie-card catalog__movies-card">
       <div className="small-movie-card__image">
@@ -24,7 +24,7 @@ MovieCard.propTypes = {
   imagePath: PropTypes.string.isRequired,
   nameFilm: PropTypes.string.isRequired,
   onHeaderClick: PropTypes.func.isRequired,
-  changesState: PropTypes.func.isRequired,
+  handleCardHover: PropTypes.func.isRequired,
 };
 
 export default MovieCard;

@@ -23,7 +23,7 @@ describe(`MovieCardComponent`, () => {
           imagePath={filmsInfo[0].src}
           nameFilm={filmsInfo[0].name}
           onHeaderClick={onHeaderClick}
-          changesState={onCardHover} />
+          handleCardHover={onCardHover} />
     );
 
     const cardsElements = MovieCardElement.find(`article.small-movie-card`);
@@ -41,7 +41,7 @@ describe(`MovieCardComponent`, () => {
           imagePath={filmsInfo[0].src}
           nameFilm={filmsInfo[0].name}
           onHeaderClick={onHeaderClick}
-          changesState={onCardHover} />
+          handleCardHover={onCardHover} />
     );
     const cardsElements = MovieCardElement.find(`article.small-movie-card`);
     cardsElements.simulate(`mouseenter`, {preventDefault() { }});

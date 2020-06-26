@@ -15,7 +15,7 @@ const cardHover = () => {};
 describe(`ChecksComponentsMovieCard`, () => {
   it(`RenderComponentsMovieCard`, () => {
     const tree = renderer
-      .create(filmsInfo.map((film) => <MovieCard key={film} imagePath={film.src} nameFilm={film.name} onHeaderClick={headerClick} changesState={cardHover}/>))
+      .create(filmsInfo.map((film) => <MovieCard key={film} imagePath={film.src} nameFilm={film.name} onHeaderClick={headerClick} handleCardHover={cardHover}/>))
       .toJSON();
 
     expect(tree).toMatchSnapshot();
