@@ -15,34 +15,17 @@ class MovieList extends PureComponent {
     this.handleCardHover = this.handleCardHover.bind(this);
 
     this.handleCardMouseLeave = this.handleCardMouseLeave.bind(this);
-
-    this.showPreview = this.showPreview.bind(this);
-  }
-
-  showPreview(display) {
-    this.setState = {
-      display,
-    };
-    console.log(this.state);
-  }
-
-  delayShowPreview(display) {
-    timeoutID = setTimeout(this.showPreview(display), 1000);
   }
 
   handleCardHover(name, display) {
-    this.setState = {
+    this.setState({
       name,
-    };
-
-    this.delayShowPreview(display);
+      display,
+    });
   }
 
   handleCardMouseLeave() {
-    clearTimeout(timeoutID);
-    this.setState = {
-      display: `img`,
-    };
+    this.setState({display: `video`});
   }
 
   render() {

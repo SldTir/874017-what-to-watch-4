@@ -7,8 +7,7 @@ const MovieCard = (props) => {
   const {imagePath, nameFilm, onHeaderClick, handleCardHover, handleCardMouseLeave, display} = props;
   return (
     <article onMouseEnter={(evt) => {
-      evt.preventDefault()
-      debugger;
+      evt.preventDefault();
       if (display === `img`) {
         handleCardHover(nameFilm, `video`);
       } else {
