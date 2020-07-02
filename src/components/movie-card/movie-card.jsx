@@ -3,24 +3,26 @@ import PropTypes from "prop-types";
 import VideoPlayer from "../video-player/video-player.jsx";
 import CardImg from "../card-img/card-img.jsx";
 
+let timeoutId;
+
+
 const MovieCard = (props) => {
-  const {imagePath, nameFilm, onHeaderClick, handleCardHover, handleCardMouseLeave, display} = props;
+  const {activePlayer, cardNumber, imagePath, nameFilm, preview, onHeaderClick, handleCardHover, handleCardMouseLeave} = props;
   return (
     <article onMouseEnter={(evt) => {
       evt.preventDefault();
-      if (display === `img`) {
-        handleCardHover(nameFilm, `video`);
-      } else {
-        handleCardHover(nameFilm, `img`);
-      }
+      timeoutId = setTimeout(handleCardHover, 1000, nameFilm, cardNumber);
     }}
 
     onMouseLeave={(evt) => {
       evt.preventDefault();
+      clearTimeout(timeoutId);
       handleCardMouseLeave();
     }}
     className="small-movie-card catalog__movies-card">
-      {display === `img` && <CardImg imagePath={imagePath} nameFilm={nameFilm}/> || display === `video` && <VideoPlayer />}
+      <div className="small-movie-card__image">
+        {activePlayer === cardNumber ? <VideoPlayer preview={preview} imagePath={imagePath}/> : <CardImg imagePath={imagePath} nameFilm={nameFilm}/>}
+      </div>
       <h3 className="small-movie-card__title" onClick={onHeaderClick}>
         <a className="small-movie-card__link" href="movie-page.html">{nameFilm}</a>
       </h3>

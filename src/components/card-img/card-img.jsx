@@ -4,9 +4,7 @@ import PropTypes from "prop-types";
 const MovieCard = (props) => {
   const {imagePath, nameFilm} = props;
   return (
-    <div className="small-movie-card__image">
-      <img src={imagePath} alt={nameFilm} width="280" height="175" />
-    </div>
+    <img src={imagePath} alt={nameFilm} width="280" height="175" />
   );
 };
 

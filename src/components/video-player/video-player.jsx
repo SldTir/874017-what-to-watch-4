@@ -7,10 +7,9 @@ export default class VideoPlayer extends PureComponent {
   }
 
   render() {
+    const {imagePath, preview} = this.props;
     return (
-      <div className="player">
-        <video/>
-      </div>
+      <video src={preview} poster={imagePath} autoPlay width="280" height="175" muted />
     );
   }
 }
