@@ -3,20 +3,16 @@ import PropTypes from "prop-types";
 import VideoPlayer from "../video-player/video-player.jsx";
 import CardImg from "../card-img/card-img.jsx";
 
-let timeoutId;
-
-
 const MovieCard = (props) => {
   const {activePlayer, cardNumber, imagePath, nameFilm, preview, onHeaderClick, handleCardHover, handleCardMouseLeave} = props;
   return (
     <article onMouseEnter={(evt) => {
       evt.preventDefault();
-      timeoutId = setTimeout(handleCardHover, 1000, nameFilm, cardNumber);
+      handleCardHover(nameFilm, cardNumber);
     }}
 
     onMouseLeave={(evt) => {
       evt.preventDefault();
-      clearTimeout(timeoutId);
       handleCardMouseLeave();
     }}
     className="small-movie-card catalog__movies-card">
@@ -31,8 +27,11 @@ const MovieCard = (props) => {
 };
 
 MovieCard.propTypes = {
+  activePlayer: PropTypes.string.isRequired,
+  cardNumber: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   nameFilm: PropTypes.string.isRequired,
+  preview: PropTypes.string.isRequired,
   onHeaderClick: PropTypes.func.isRequired,
   handleCardHover: PropTypes.func.isRequired,
   handleCardMouseLeave: PropTypes.func.isRequired,

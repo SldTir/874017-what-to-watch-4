@@ -11,9 +11,6 @@ const MovieCard = (props) => {
 MovieCard.propTypes = {
   imagePath: PropTypes.string.isRequired,
   nameFilm: PropTypes.string.isRequired,
-  onHeaderClick: PropTypes.func.isRequired,
-  handleCardHover: PropTypes.func.isRequired,
-  handleCardMouseLeave: PropTypes.func.isRequired,
 };
 
 export default MovieCard;

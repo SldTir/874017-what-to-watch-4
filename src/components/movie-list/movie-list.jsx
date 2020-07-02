@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, {PureComponent} from "react";
 import MovieCard from "../movie-card/movie-card.jsx";
 import PropTypes from "prop-types";
 
@@ -6,9 +6,11 @@ class MovieList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      activePlayer: -1,
+      activePlayer: `-1`,
       name: `Bohemian Rhapsody`,
     };
+
+    this.timerId = null;
 
     this.handleCardHover = this.handleCardHover.bind(this);
 
@@ -16,14 +18,17 @@ class MovieList extends PureComponent {
   }
 
   handleCardHover(name, it) {
-    this.setState({
-      activePlayer: it,
-      name,
-    });
+    this.timerId = setTimeout(() => {
+      this.setState({
+        activePlayer: it,
+        name,
+      });
+    }, 1000);
   }
 
   handleCardMouseLeave() {
-    this.setState({activePlayer: -1});
+    clearTimeout(this.timerId);
+    this.setState({activePlayer: `-1`});
   }
 
   render() {
@@ -32,11 +37,11 @@ class MovieList extends PureComponent {
     return (
       <div className="catalog__movies-list" >
         {
-          filmsInfo.map((film, it, filmsArray) =>
+          filmsInfo.map((film, filmsArray) =>
             <MovieCard
               activePlayer={activePlayer}
-              cardNumber={it}
-              key={film + it}
+              cardNumber={film.id}
+              key={film.id}
               imagePath={film.src}
               nameFilm={film.name}
               preview={film.preview}
