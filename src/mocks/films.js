@@ -45,3 +45,5 @@ export default [
     id: getId(),
   }
 ];
+
+export {getId};

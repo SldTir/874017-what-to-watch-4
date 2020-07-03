@@ -37,7 +37,7 @@ class MovieList extends PureComponent {
     return (
       <div className="catalog__movies-list" >
         {
-          filmsInfo.map((film, filmsArray) =>
+          filmsInfo.map((film) =>
             <MovieCard
               activePlayer={activePlayer}
               cardNumber={film.id}
@@ -48,8 +48,6 @@ class MovieList extends PureComponent {
               onHeaderClick={onHeaderClick}
               handleCardHover={this.handleCardHover}
               handleCardMouseLeave={this.handleCardMouseLeave}
-              filmsArray={filmsArray}
-              display={this.state.display}
             />
           )}
       </div>
