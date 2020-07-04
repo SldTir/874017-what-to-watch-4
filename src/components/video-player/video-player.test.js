@@ -10,6 +10,7 @@ const mock = {
 
 it(`VideoPlayer is rendered correctly`, () => {
   const tree = renderer.create(<VideoPlayer
+    play={false}
     preview={mock.preview}
     imagePath={mock.src}
   />, {

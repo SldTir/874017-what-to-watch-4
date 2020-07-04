@@ -12,6 +12,13 @@ export default class VideoPlayer extends PureComponent {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    const {play} = this.props;
+    if (play !== prevProps.play) {
+      this.setState({play: true});
+    }
+  }
+
   componentDidMount() {
     const {imagePath, preview} = this.props;
     const video = this._videoRef.current;
@@ -29,7 +36,7 @@ export default class VideoPlayer extends PureComponent {
       });
     };
 
-    video.onpause = () => {
+    video.onended = () => {
       this.setState({
         play: false,
       });
@@ -41,7 +48,7 @@ export default class VideoPlayer extends PureComponent {
     const video = this._videoRef.current;
 
     video.onplay = null;
-    video.onpause = null;
+    video.onended = null;
   }
 
   render() {
@@ -54,4 +61,5 @@ export default class VideoPlayer extends PureComponent {
 VideoPlayer.propTypes = {
   imagePath: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
+  play: PropTypes.bool.isRequired,
 };

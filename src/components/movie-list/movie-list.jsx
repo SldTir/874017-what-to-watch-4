@@ -39,6 +39,7 @@ class MovieList extends PureComponent {
         {
           filmsInfo.map((film) =>
             <MovieCard
+              play={false}
               activePlayer={activePlayer}
               cardNumber={film.id}
               key={film.id}
