@@ -1,12 +1,10 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import Filter from "../filter/filter.jsx";
 import PropTypes from "prop-types";
-import {render} from "enzyme";
-import { connect } from "react-redux";
-import { ActionCreator } from "../../reducer.js";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer.js";
 
 const activeClass = (filter, activeFilter) => {
-  debugger;
   if (filter === activeFilter) {
     return `catalog__genres-item catalog__genres-item--active`;
   } else {
@@ -26,6 +24,12 @@ const FilterList = (props) => {
       )}
     </ul>
   );
+};
+
+FilterList.propTypes = {
+  filmsInfo: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired).isRequired).isRequired,
+  genre: PropTypes.string.isRequired,
+  onFilterButtonClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
