@@ -38,7 +38,7 @@ class MovieList extends PureComponent {
     if (genre === `All genres`) {
       return filmsArray;
     } else {
-      const filteredArray = filmsArray.slice().filter((film) => {
+      const filteredArray = filmsArray.filter((film) => {
         return film.genre === genre;
       });
       return filteredArray;
