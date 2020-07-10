@@ -14,9 +14,9 @@ const activeClass = (filter, activeFilter) => {
 
 const FilterList = (props) => {
   const {filmsInfo, genre, onFilterButtonClick} = props;
-  const filmsGenre = filmsInfo.slice().map((film) => film.genre);
-  filmsGenre.unshift(`All genres`);
-  const filmsUppdate = [...new Set(filmsGenre)];
+  const filmsGenreUp = filmsInfo.slice().map((film) => film.genre);
+  filmsGenreUp.unshift(`All genres`);
+  const filmsUppdate = [...new Set(filmsGenreUp)];
   return (
     <ul className="catalog__genres-list">
       {filmsUppdate.map((film, it) =>

@@ -2,13 +2,13 @@ import {reducer, ActionType, ActionCreator} from "./reducer.js";
 
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(void 0, {})).toEqual({
-    genre: `All`,
+    genre: `All genres`,
   });
 });
 
 it(`ChecksTheChangeOfTheGenre`, () => {
   expect(reducer({
-    genre: `All`
+    genre: `All genres`
   }, {
     type: ActionType.FILTER_BY_GENRE,
     payload: `Comedies`,
@@ -17,7 +17,7 @@ it(`ChecksTheChangeOfTheGenre`, () => {
   });
 
   expect(reducer({
-    genre: `All`
+    genre: `All genres`
   }, {
     type: ActionType.FILTER_BY_GENRE,
     payload: `Crime`,

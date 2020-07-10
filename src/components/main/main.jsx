@@ -74,7 +74,6 @@ const Main = (props) => {
             filmsInfo={filmsInfo}
             onHeaderClick={onHeaderClick}
           />
-
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
           </div>
