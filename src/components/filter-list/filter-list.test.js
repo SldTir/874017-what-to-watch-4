@@ -1,18 +1,7 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Main from "./main.jsx";
-import {Provider} from "react-redux";
-import configureStore from "redux-mock-store";
+import React from 'react';
+import renderer from 'react-test-renderer';
+import {FilterList} from './filter-list.jsx';
 import {getId} from "../../mocks/films.js";
-
-const mockStore = configureStore([]);
-
-const Description = {
-  GENRE: `Drama`,
-  DATE: 2014,
-};
-
-const genre = `All genres`;
 
 const filmsInfo = [
   {
@@ -66,21 +55,22 @@ const filmsInfo = [
   }
 ];
 
-describe(`ChecksComponentsMain`, () => {
-  it(`RenderComponentsMain`, () => {
-    const store = mockStore({
-      genre: `All genres`,
-    });
+const genre = `All genres`;
+
+const onFilterButtonClick = () => {};
+
+describe(`ChecksTheCreationOfAListFilters`, () => {
+  it(`CreatesAListFilters`, () => {
     const tree = renderer
-      .create(<Provider store={store}>
-        <Main
-          Description={Description}
-          filmsInfo={filmsInfo}
-          onHeaderClick={() => {}}
-          genre={genre}
-        />
-      </Provider>)
-      .toJSON();
+      .create(<FilterList
+        filmsInfo={filmsInfo}
+        genre={genre}
+        onFilterButtonClick={onFilterButtonClick}
+      />, {
+        createNodeMock: () => {
+          return {};
+        }
+      }).toJSON();
 
     expect(tree).toMatchSnapshot();
   });
